@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See_your_gallery</title>
+     <link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Aesthetic gallery</h1>
+    </header>
+    <div class="fullimg" id="fullbox">
+            <button class="nav nav-popup left" onclick="prevSlide(true)">❮</button>
+         <img src="https://t4.ftcdn.net/jpg/05/61/81/29/360_F_561812977_fdRbIIxLFN1VnAIQnnspHNSYi46FNftK.jpg" id="full">
+         <button class="nav nav-popup right" onclick="nextSlide(true)">❯</button>
+         <span onclick="closefullimg()">X</span>
+    </div>
+ <div class="slider-container">
+    <div class="slider" id="slider">
+        <img src="https://t4.ftcdn.net/jpg/05/61/81/29/360_F_561812977_fdRbIIxLFN1VnAIQnnspHNSYi46FNftK.jpg" onclick="openfullimg(this.src)">
+        <img src="https://t3.ftcdn.net/jpg/05/67/54/26/360_F_567542690_1vgE00VxJbvHn2fGhl1x0fmR40lEVY9t.jpg" onclick="openfullimg(this.src)">
+        <img src="https://t4.ftcdn.net/jpg/00/74/15/95/360_F_74159556_67n5823V7Ei87a4g6JJnYHC0yMSo1AEy.jpg" onclick="openfullimg(this.src)">
+        <img src="https://t3.ftcdn.net/jpg/02/65/48/68/360_F_265486871_zB49Y8bcqYIit3vxw5347DQrgr0yE6F4.jpg" onclick="openfullimg(this.src)">
+        <img src="https://as2.ftcdn.net/jpg/01/93/86/87/1000_F_193868787_wqEn1EognQOSxw2puqzyZSerA27mV2GI.jpg" onclick="openfullimg(this.src)">
+        <img src="https://i.pinimg.com/736x/bc/bd/24/bcbd242a9ec4f015b40f4ee87fac7a8a.jpg" onclick="openfullimg(this.src)">
+        <img src="https://as2.ftcdn.net/jpg/00/43/56/55/1000_F_43565598_1Ee9cdVnpOwFGjfQypVUrxCaWPl99Dc0.jpg" onclick="openfullimg(this.src)">
+        <img src="https://t4.ftcdn.net/jpg/06/84/59/43/360_F_684594354_PyrSgG44qICKePWDd77KeiHzGb8cJArx.jpg" onclick="openfullimg(this.src)">
+        <img src="https://img5.thuthuatphanmem.vn/uploads/2021/11/12/hinh-anh-anime-don-gian-hinh-nen-anime-don-gian-ma-dep_092443354.png"  onclick="openfullimg(this.src)">
+        <img src="https://www.picture.lk/files/preview/960x1713/11710179384s3ryfrb4p5od7xvm6jtitxfgwqls5gnj4fhop5akivrj5bkbbadstsl0j72tqoomntssnv343ss7uin7mwdxfx6ekaubeebuouau.jpg"  onclick="openfullimg(this.src)">
+        <img src="https://images.stockcake.com/public/7/b/1/7b191203-f723-427b-afc2-6d3c7f23ad5d_large/sunset-ocean-waves-stockcake.jpg"onclick="openfullimg(this.src)">
+        <img src="https://images.stockcake.com/public/6/a/9/6a9d9ecd-5d38-463b-9009-14aba410b9ad_large/sunset-beach-serenity-stockcake.jpg"onclick="openfullimg(this.src)">
+    </div>
+   
+</div>
+<script>
+  const slider = document.getElementById('slider');
+  const fullbox = document.getElementById('fullbox');
+  const full = document.getElementById('full');
+
+  const images = slider.children; // all <img> tags inside slider
+  let index = 0;
+
+  function openfullimg(src) {
+    for (let i = 0; i < images.length; i++) {
+      if (images[i].src === src) {
+        index = i;
+        break;
+      }
+    }
+    fullbox.style.display = "flex";
+    full.src = images[index].src;
+  }
+
+  function closefullimg() {
+    fullbox.style.display = "none";
+  }
+
+  function showSlide(i) {
+    const total = images.length;
+    index = (i + total) % total;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide(inPopup = false) {
+    index = (index + 1) % images.length;
+    if (inPopup) {
+      full.src = images[index].src;
+    } else {
+      showSlide(index);
+    }
+  }
+
+  function prevSlide(inPopup = false) {
+    index = (index - 1 + images.length) % images.length;
+    if (inPopup) {
+      full.src = images[index].src;
+    } else {
+      showSlide(index);
+    }
+  }
+</script>
+
+</body>
+</html>

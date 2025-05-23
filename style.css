@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header h1{text-align: center;
+    transition: .5s;
+    color: #ecf4fb;
+    margin-top: 2rem;
+    text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+}
+body{
+    background: #0b0606;
+}
+.imggallery{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 30px;
+}
+.imggallery img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.fullimg{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left:0 ;
+     display: none;    /*before it was flex*/
+    align-items: center;
+     justify-content: center;
+     z-index: 100;
+}
+.fullimg img{
+    width: 90%;
+    max-width: 500px;
+}
+.fullimg span{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: #ecf4fb;
+    cursor: pointer;
+}
+.slider-container {
+    position: relative;
+    width: 90%;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #6f6d6d;
+}
+
+.slider {
+   width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    max-height: 80vh;
+}
+.slider img:hover{
+ transform: scale(0.7) rotate(-10deg);
+    border-radius: 20px;
+    box-shadow:0 32px 75px rgba(68, 77, 136,0.2) ;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+/* Popup navigation buttons */
+.nav-popup {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.nav-popup.left {
+    left: 30px;
+}
+
+.nav-popup.right {
+    right: 30px;
+}
